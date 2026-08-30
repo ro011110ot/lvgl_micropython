@@ -1345,7 +1345,14 @@ def update_main():
 
 def build_sdkconfig(*args):
     if custom_board_path is not None:
-        return []
+        # Custom boards supply their own sdkconfig fragment via sdkconfig.board,
+        # so CONFIG_* overrides are skipped. Other build args (e.g. GEN_SCRIPT
+        # and FROZEN_MANIFEST) are still needed by the LVGL build regardless of
+        # whether a custom board is used and must not be discarded.
+        return [
+            arg for arg in args
+            if not arg.startswith('CONFIG_')
+        ]
 
     base_config = [
         '',
