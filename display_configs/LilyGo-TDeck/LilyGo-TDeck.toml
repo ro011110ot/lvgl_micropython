@@ -61,7 +61,7 @@ params = []
 [display.set_rotation]
 params = [3]
 
-[gt911.touch]
+[GT911.touch]
 device = "touch_device"
 
 [keyboard_s3.Keyboard.keyboard]
