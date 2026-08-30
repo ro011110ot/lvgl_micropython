@@ -30,7 +30,7 @@ class TrackBall(keypad_framework.KeypadDriver):
 
         super().__init__()
 
-        self.set_group(g)
+        self.set_group(group)
         self.enable(1)
 
         self._indev_drv.set_mode(lv.INDEV_MODE.EVENT)  # NOQA
