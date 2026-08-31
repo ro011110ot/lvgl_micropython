@@ -1,6 +1,11 @@
 [MCU.esp32]
 FROZEN_MANIFEST = "display_configs/LilyGo-TDeck/manifest.py"
 
+[machine.Pin.pwr_pin]
+pin = 10
+mode = "machine.Pin.OUT"
+value = 1
+
 [SPI.Bus.spi_bus]
 host = 1
 mosi = 41
