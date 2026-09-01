@@ -271,7 +271,22 @@ class TOMLObject(metaclass=TOMLMeta):
             if output:
                 output.append('')
 
-            params = ',\n'.join(f'    {k}={str(v)}' for k, v in self.__kwargs.items() if not isinstance(v, dict))
+            if self.parent is not None and self.parent.name == 'Pin':
+                kwargs_items = [
+                    (k, v)
+                    for k, v in self.__kwargs.items()
+                    if not isinstance(v, dict)
+                ]
+                pos = []
+                kw = []
+                for k, v in kwargs_items:
+                    if k == 'pin':
+                        pos.append(str(v))
+                    else:
+                        kw.append(f'    {k}={str(v)}')
+                params = (('    ' + ',\n    '.join(pos) + ',\n') if pos else '') + ',\n'.join(kw)
+            else:
+                params = ',\n'.join(f'    {k}={str(v)}' for k, v in self.__kwargs.items() if not isinstance(v, dict))
             if params:
                 output.append(f'{fqn}(\n{params}\n)\n')
             else:
