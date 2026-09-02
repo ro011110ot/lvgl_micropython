@@ -36,7 +36,7 @@ freq = 100000
 
 [I2C.Device.touch_device]
 bus = "i2c_bus"
-dev_id = "gt911.I2C_ADDR"
+dev_id = 0x14
 reg_bits = "gt911.BITS"
 
 [I2C.Device.keyboard_device]
