@@ -84,9 +84,6 @@ left_pin = 15
 right_pin = 1
 press_pin = 0
 
-[power.Button.pwr_button]
-pin = 10
-
 [display.set_backlight]
 params = [100]
 
