@@ -1,6 +1,11 @@
 [MCU.esp32]
 FROZEN_MANIFEST = "display_configs/LilyGo-TDeck/manifest.py"
 
+[machine.Pin.touch_int_pin]
+pin = 16
+mode = "machine.Pin.OUT"
+value = 0
+
 [machine.Pin.pwr_pin]
 pin = 10
 mode = "machine.Pin.OUT"
@@ -36,7 +41,7 @@ freq = 100000
 
 [I2C.Device.touch_device]
 bus = "i2c_bus"
-dev_id = 0x14
+dev_id = 0x5D
 reg_bits = "gt911.BITS"
 
 [I2C.Device.keyboard_device]
